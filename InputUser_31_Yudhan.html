@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Daftar hiGirls!</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>XI RPL 5 / 31</h1>
+        <h2>Pendaftaran hiGirls!</h2>
+        Nama.. : 
+        <input type="text" id="nama"> <br>
+        E-Mail :
+        <input type="text" id="inputemail"> <br>
+        Negara : 
+        <select id="Negara">
+            <option value="Indonesia">Indonesia</option>
+            <option value="Malaysia">Malaysia</option>
+            <option value="Brunei">Brunei</option>
+            <option value="Filipina">Filipina</option>
+            <option value="Jerman">Jerman</option>
+        </select> <br>
+        Tahun Lahir :
+        <select id="lahir">
+            <option>1994</option>
+            <option>1995</option>
+            <option>1996</option>
+            <option>1997</option>
+            <option>1998</option>
+            <option>1999</option>
+            <option>2000</option>
+            <option>2001</option>
+            <option>2002</option>
+            <option>2003</option>
+        </select> <br>
+        Gender :
+        <input type="radio" name="gender" value="Pria"> Pria
+        <input type="radio" name="gender" value="Wanita"> Wanita
+        <input type="radio" name="gender" value="Gender Tidak Terdefinisi"> Tidak Terdefinisi <br>
+        <button id="btn" onclick="ambilData()">Daftar</button> <br>
+
+        <table>
+            <b style='display:none' id="welcome">Selamat Datang di hiGirls!</b>
+            <tr>
+                <tr>
+                <td><b>Nama :</b></td>
+                <td><b id="demo"></b></td>
+            </tr>
+            <tr>
+                <td><b>E-Mail :</b></td>
+                <td><b id="displayemail"></b></td>
+            </tr>
+            <tr>
+                <td><b>Negara :</b></td>
+                <td><b id="displaynegara"></b></td>
+            </tr>
+            <tr>
+                <td><b>Tgl Lahir :</b></td>
+                <td><b id="displaylahir"></b></td>
+            </tr>
+            <tr>
+                <td><b>Gender :</b></td>
+                <td><b id="displayGender"></b></td>
+            </tr>
+            </tr>
+        </table>
+
+        <script>
+        function ambilData() {
+            var jenis = new Array(); 
+        var jenis = document.getElementsByName("gender"); 
+        
+        if (jenis[0].checked === true)
+                var j = jenis[0].value; 
+            else if (jenis[1].checked === true)   
+                var j = jenis[1].value; 
+            else if(jenis[2].checked === true){
+    var j = jenis[2].value;
+} else 
+                var j = "Anda belum memilih Gender"; 
+                document.getElementById("displayGender").innerHTML = j;   
+
+            var e = document.getElementById('welcome');
+            if (e.style.display == 'block' || e.style.display==''){
+            e.style.display = 'none';
+            } else {
+            e.style.display = 'block';
+        }
+            if(document.getElementById("nama").value == "" || document.getElementById("inputemail").value == ""){  
+                document.getElementById("demo").innerHTML = "isian tidak boleh ada yang kosong";
+                
+            } else if(document.getElementById("nama").value || document.getElementById("inputemail").value) {
+                 var nama = document.getElementById("nama").value; 
+                 document.getElementById("demo").innerHTML = nama; 
+            var nama = document.getElementById("inputemail").value; 
+                 document.getElementById("displayemail").innerHTML = nama; 
+            var listnegara = document.getElementById("Negara").value;
+            document.getElementById("displaynegara").innerHTML = listnegara;
+            var listlahir = document.getElementById("lahir").value;
+            document.getElementById("displaylahir").innerHTML = listlahir;
+            } 
+            } 
+        </script>
+    </body>
+</html>
